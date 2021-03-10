@@ -40,6 +40,21 @@ struct attribute s_temperature ={"temperature",45,0,42.75,2.25};
 struct attribute s_soc = {"soc",80,20,76,24};
 struct attribute s_chargeRate = {"chargeRate",0.8,0,0.76,0.04};
 
+const char *BatteryStatus_English[] =
+{
+    "has breached lower limit ",
+    "has breached higher limit",
+    "has approached lower limit.",
+    "has approachied higher limit"
+};
+
+const char *BatteryStatus_German[] =
+{
+    "ishat die Untergrenze überschritten",
+    "ishat die Obergrenze überschritten",
+    "hat sich der Untergrenze genähert",
+    "hat sich der Obergrenze genähert"
+};
 /*
 ***************************************************************************************
 * Declarations
@@ -47,7 +62,7 @@ struct attribute s_chargeRate = {"chargeRate",0.8,0,0.76,0.04};
 */
 
 
-
+void DisplaybatteryStatus(struct attribute s_attribute,int IdxMessage);
 int Check_LowAttributeBreach(float attribute_value,struct attribute s_attribute);
 int Check_HighAttributeBreach(float attribute_value,struct attribute s_attribute);
 int Check_LowAttributeWarning(float attribute_value,struct attribute s_attribute);
