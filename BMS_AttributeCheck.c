@@ -117,7 +117,7 @@ int batteryIsOk(float temperature, float soc, float chargeRate)
     
     if((temperature_check + soc_check + chargeRate_check)==0)
     {
-        Sel_Language == GERMAN ? printf("Battery is ok\n"):printf("Batterie ist in Ordnung\n");
+       DisplaybatteryStatus(s_attribute,4);
     }
     
     return!(temperature_check + soc_check + chargeRate_check);
