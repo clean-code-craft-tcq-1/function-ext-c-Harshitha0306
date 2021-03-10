@@ -60,8 +60,7 @@ int Check_LowAttributeWarning(float attribute_value,struct attribute s_attribute
    if((attribute_value <= s_attribute.attribute_LowWarning)&& (attribute_value > s_attribute.attribute_minvalue))
    {
 
-       //Sel_Language == ENGLISH ? printf("%s has approached lower limit\n",s_attribute.attribute_name):
-      // printf("%s hat sich der Untergrenze genähert\n",s_attribute.attribute_name);
+       Sel_Language == ENGLISH ? printf("%s has approached lower limit\n",s_attribute.attribute_name):printf("%s hat sich der Untergrenze genähert\n",s_attribute.attribute_name);
        return 1;
    }
     else 
