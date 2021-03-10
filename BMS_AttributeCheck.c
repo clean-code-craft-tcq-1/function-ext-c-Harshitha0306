@@ -60,10 +60,15 @@ int Check_LowAttributeWarning(float attribute_value,struct attribute s_attribute
    if((attribute_value <= s_attribute.attribute_LowWarning)&& (attribute_value > s_attribute.attribute_minvalue))
    {
 
-       // Sel_Language == ENGLISH ? printf("%s has approached lower limit\n",s_attribute.attribute_name):
+       //Sel_Language == ENGLISH ? printf("%s has approached lower limit\n",s_attribute.attribute_name):
       // printf("%s hat sich der Untergrenze genähert\n",s_attribute.attribute_name);
+       return 1;
    }
-    return((attribute_value <= s_attribute.attribute_LowWarning)&& (attribute_value > s_attribute.attribute_minvalue));
+    else 
+    {
+        return 0;
+    }
+   // return((attribute_value <= s_attribute.attribute_LowWarning)&& (attribute_value > s_attribute.attribute_minvalue));
 }
 
 /*This Function Checks if the Battery attribute value read is approaching the defined Maximum limit
