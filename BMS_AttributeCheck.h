@@ -44,8 +44,9 @@ const char *BatteryStatus_English[] =
 {
     "has breached lower limit ",
     "has breached higher limit",
-    "has approached lower limit.",
-    "has approachied higher limit"
+    "has approached lower limit",
+    "has approachied higher limit",
+    "battery is ok"
 };
 
 const char *BatteryStatus_German[] =
@@ -53,7 +54,8 @@ const char *BatteryStatus_German[] =
     "ishat die Untergrenze überschritten",
     "ishat die Obergrenze überschritten",
     "hat sich der Untergrenze genähert",
-    "hat sich der Obergrenze genähert"
+    "hat sich der Obergrenze genähert",
+    "Batterie ist in Ordnung"
 };
 /*
 ***************************************************************************************
