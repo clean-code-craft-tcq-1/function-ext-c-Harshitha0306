@@ -26,15 +26,27 @@
  * \param     attribute                   This structure states attribute name , minimum and maximum limit
  * \return                                returns 1 if the Battery reading is less then the defined Minimum limit else returns 0     */
 
+void DisplaybatteryStatus(struct attribute s_attribute,int IdxMessage){
+    if (Sel_Language == ENGLISH)
+    {
+        printf("%s %s\n", s_attribute.attribute_name,BatteryStatus_English[IdxMessage]);
+    }
+    else{
+        printf("%s %s\n", s_attribute.attribute_name,BatteryStatus_German[IdxMessage]);
+    }
+}
 
 int Check_LowAttributeBreach(float attribute_value,struct attribute s_attribute){
     
     if(attribute_value < s_attribute.attribute_minvalue)
     {
-        Sel_Language == ENGLISH  ? printf("%s has breached lower limit\n",s_attribute.attribute_name):printf("%s ishat die Untergrenze überschritten\n",s_attribute.attribute_name);
+        DisplaybatteryStatus(s_attribute,0);
+        return 1;
     }
-    
-    return(attribute_value < s_attribute.attribute_minvalue);
+    else
+    {
+        return 0;
+    }
 }
 
  /*This Function Checks if the Battery attribute value read is greater than the defined Maximum limit
@@ -44,10 +56,13 @@ int Check_LowAttributeBreach(float attribute_value,struct attribute s_attribute)
 
 int Check_HighAttributeBreach(float attribute_value,struct attribute s_attribute){
     if(attribute_value > s_attribute.attribute_maxvalue){
-       Sel_Language == ENGLISH ? printf("%s has breached higher limit\n",s_attribute.attribute_name): printf("%s ishat die Obergrenze überschritten\n",s_attribute.attribute_name);
+        DisplaybatteryStatus(s_attribute,1);
+        return 1;
     }
-    
-    return(attribute_value > s_attribute.attribute_maxvalue);
+    else
+    {
+        return 0;
+    }
 }
 
 /*This Function Checks if the Battery attribute value read is approaching defined Minimum limit
@@ -57,17 +72,15 @@ int Check_HighAttributeBreach(float attribute_value,struct attribute s_attribute
 
 int Check_LowAttributeWarning(float attribute_value,struct attribute s_attribute){
 
-   if((attribute_value <= s_attribute.attribute_LowWarning)&& (attribute_value > s_attribute.attribute_minvalue))
+   if((attribute_value <= s_attribute.attribute_LowWarning) && (attribute_value > s_attribute.attribute_minvalue))
    {
-
-       Sel_Language == ENGLISH ? printf("%s has approached lower limit\n",s_attribute.attribute_name):printf("%s hat sich der Untergrenze genähert\n",s_attribute.attribute_name);
+       DisplaybatteryStatus(s_attribute,2);
        return 1;
    }
-    else 
-    {
-        return 0;
-    }
-   // return((attribute_value <= s_attribute.attribute_LowWarning)&& (attribute_value > s_attribute.attribute_minvalue));
+   else
+   {
+       return 0;
+   }
 }
 
 /*This Function Checks if the Battery attribute value read is approaching the defined Maximum limit
@@ -77,11 +90,14 @@ int Check_LowAttributeWarning(float attribute_value,struct attribute s_attribute
 
 int Check_HighAttributeWarning(float attribute_value,struct attribute s_attribute){
    if((attribute_value >= s_attribute.attribute_HighWarning)&& (attribute_value < s_attribute.attribute_maxvalue)){
-      // Sel_Language == ENGLISH ? printf("%s has approached higher limit\n",s_attribute.attribute_name): printf("%s hat sich der Obergrenze genähert \n",s_attribute.attribute_name);
-      }
-    return((attribute_value >= s_attribute.attribute_HighWarning)&& (attribute_value < s_attribute.attribute_maxvalue));
+       DisplaybatteryStatus(s_attribute,3);
+       return 1;
    }
-
+   else
+   {
+       return 0;
+   }
+}
  /*This Function Checks if the Battery is normal or abnormal based on defined Maximum and Minimum limts of each attribute
  * \param     temperature, soc,chargeRate   Input Attributes
   * \return                                 returns 1 if the Battery reading is normal else returns 0                           */
