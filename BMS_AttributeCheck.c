@@ -60,8 +60,8 @@ int Check_LowAttributeWarning(float attribute_value,struct attribute s_attribute
    if((attribute_value <= s_attribute.attribute_LowWarning)&& (attribute_value > s_attribute.attribute_minvalue))
    {
 
-        Sel_Language == ENGLISH ? printf("%s has approached lower limit\n",s_attribute.attribute_name):
-       printf("%s hat sich der Untergrenze genähert\n",s_attribute.attribute_name);
+       // Sel_Language == ENGLISH ? printf("%s has approached lower limit\n",s_attribute.attribute_name):
+      // printf("%s hat sich der Untergrenze genähert\n",s_attribute.attribute_name);
    }
     return((attribute_value <= s_attribute.attribute_LowWarning)&& (attribute_value > s_attribute.attribute_minvalue));
 }
@@ -73,7 +73,7 @@ int Check_LowAttributeWarning(float attribute_value,struct attribute s_attribute
 
 int Check_HighAttributeWarning(float attribute_value,struct attribute s_attribute){
    if((attribute_value >= s_attribute.attribute_HighWarning)&& (attribute_value < s_attribute.attribute_maxvalue)){
-       Sel_Language == ENGLISH ? printf("%s has approached higher limit\n",s_attribute.attribute_name): printf("%s hat sich der Obergrenze genähert \n",s_attribute.attribute_name);
+      // Sel_Language == ENGLISH ? printf("%s has approached higher limit\n",s_attribute.attribute_name): printf("%s hat sich der Obergrenze genähert \n",s_attribute.attribute_name);
       }
     return((attribute_value >= s_attribute.attribute_HighWarning)&& (attribute_value < s_attribute.attribute_maxvalue));
    }
